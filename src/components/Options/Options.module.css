@@ -3,10 +3,7 @@
   margin-right: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 500px;
-  overflow: hidden;
-  gap: 15px;
-  padding-top: 25px;
+  width: 700px;
+  gap: 5px;
   padding-bottom: 25px;
 }
