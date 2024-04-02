@@ -10,6 +10,9 @@ export default function App() {
     bad: 0,
   });
 
+  const { good, neutral, bad } = typesFeedback;
+  const totalFeedback = good + neutral + bad;
+
   const updateFeedback = feedbackType => {
     const updatedTypesFeedback = { ...typesFeedback };
     updatedTypesFeedback[feedbackType] += 1;
@@ -24,13 +27,11 @@ export default function App() {
     });
   };
 
-  const { good, neutral, bad } = typesFeedback;
-
   return (
     <>
       <Description />
       <Options onButton={updateFeedback} reset={resetFeedback} />
-      <Feedback good={good} neutral={neutral} bad={bad} />
+      <Feedback good={good} neutral={neutral} bad={bad} total={totalFeedback} />
     </>
   );
 }
