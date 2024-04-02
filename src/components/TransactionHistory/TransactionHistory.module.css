@@ -1,0 +1,33 @@
+/* TransactionHistory.module.css */
+.table {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thead {
+  background-color: rgb(46, 46, 46);
+  color: #ffffff;
+  text-align: center;
+}
+
+.tr {
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+  text-align: center;
+}
+
+.trOdd {
+  background-color: lightgray;
+}
+
+.trEven {
+  background-color: #ffffff;
+}
+
+.td {
+  border: 1px solid black;
+}
