@@ -10,20 +10,27 @@ export default function App() {
     bad: 0,
   });
 
-  const handleChangeFedback = () => {
+  const updateFeedback = feedbackType => {
+    const updatedTypesFeedback = { ...typesFeedback };
+    updatedTypesFeedback[feedbackType] += 1;
+    setTypesFeedback(updatedTypesFeedback);
+  };
+
+  const resetFeedback = () => {
     setTypesFeedback({
-      ...typesFeedback,
-      good: 5,
+      good: 0,
       neutral: 0,
       bad: 0,
     });
   };
 
+  const { good, neutral, bad } = typesFeedback;
+
   return (
     <>
-      <Description></Description>
-      <Options onButton={handleChangeFedback} />
-      <Feedback></Feedback>
+      <Description />
+      <Options onButton={updateFeedback} reset={resetFeedback} />
+      <Feedback good={good} neutral={neutral} bad={bad} />
     </>
   );
 }
