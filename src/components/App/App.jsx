@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Description from '../Description/Description';
 import Options from '../Options/Options';
 import Feedback from '../Feedback/Feedback';
+import Notification from '../Notification/Notification';
 
 export default function App() {
   const [typesFeedback, setTypesFeedback] = useState({
@@ -30,8 +31,22 @@ export default function App() {
   return (
     <>
       <Description />
-      <Options onButton={updateFeedback} reset={resetFeedback} />
-      <Feedback good={good} neutral={neutral} bad={bad} total={totalFeedback} />
+      <Options
+        onButton={updateFeedback}
+        reset={resetFeedback}
+        total={totalFeedback}
+      />
+
+      {totalFeedback === 0 ? (
+        <Notification />
+      ) : (
+        <Feedback
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={totalFeedback}
+        />
+      )}
     </>
   );
 }
