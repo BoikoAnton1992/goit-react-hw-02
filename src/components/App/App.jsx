@@ -24,6 +24,9 @@ export default function App() {
   const { good, neutral, bad } = typesFeedback;
   const totalFeedback = good + neutral + bad;
 
+  const positivePercentage =
+    totalFeedback === 0 ? 0 : Math.round((good / totalFeedback) * 100);
+
   const updateFeedback = feedbackType => {
     const updatedTypesFeedback = { ...typesFeedback };
     updatedTypesFeedback[feedbackType] += 1;
@@ -51,10 +54,9 @@ export default function App() {
         <Notification />
       ) : (
         <Feedback
-          good={good}
-          neutral={neutral}
-          bad={bad}
+          feedback={typesFeedback}
           total={totalFeedback}
+          positivePercentage={positivePercentage}
         />
       )}
     </>
